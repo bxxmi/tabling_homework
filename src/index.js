@@ -1,1 +1,3 @@
-import "./scss/_reset.scss";
+import App from "./App";
+
+new App({ target: document.querySelector("body") });
