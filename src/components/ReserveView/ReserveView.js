@@ -9,9 +9,8 @@ const ReserveView = ({ target, dataList }) => {
   target.appendChild(reserveContainer);
 
   const handleSelect = (id) => {
-    const selectedList = [];
     const result = dataList.filter((item) => item.id === id);
-    selectedList.push(result);
+    const selectedList = [...result];
 
     new ReserveDetail({ target: reserveContainer, selectedList });
   };
