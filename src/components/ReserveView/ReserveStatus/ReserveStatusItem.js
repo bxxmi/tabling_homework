@@ -5,8 +5,7 @@ const STATUS = ["착석 중", "예약"];
 const IS_SEAT = ["착석", "퇴석"];
 
 function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
-  const { id, customer, menus, status, tables, timeRegistered, timeReserved } =
-    item;
+  const { id, customer, menus, status, tables, timeReserved } = item;
 
   const $li = document.createElement("li");
   const timeContainer = document.createElement("div");
@@ -38,9 +37,13 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   $li.appendChild(buttonContainer);
   target.appendChild($li);
 
-  $li.addEventListener("click", () => handleSelect(id));
+  $li.addEventListener("click", () => {
+    handleSelect(id);
+  });
 
   button.addEventListener("click", (e) => {
+    e.stopPropagation();
+
     e.target.innerText === "착석"
       ? (e.target.innerText = "퇴석")
       : handleRemove(id);
