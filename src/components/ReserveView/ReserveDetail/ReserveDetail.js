@@ -8,7 +8,7 @@ const ReserveDetail = ({ target, selectedList }) => {
   const reserveInfoContainer = document.createElement("div");
   const bookerInfoContainer = document.createElement("div");
 
-  detailContainer.className = styles.reserve_detail;
+  detailContainer.className = "reserve_detail";
   reserveInfoContainer.className = styles.reserve_detail_info;
   bookerInfoContainer.className = styles.reserve_detail_booker;
 
