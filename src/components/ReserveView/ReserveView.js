@@ -8,14 +8,20 @@ const ReserveView = ({ target, dataList }) => {
   reserveContainer.className = styles.reserve_container;
   target.appendChild(reserveContainer);
 
+  let selectedList = [dataList[0]];
+
   const handleSelect = (id) => {
+    const detailView = document.querySelector(".reserve_detail");
+    reserveContainer.removeChild(detailView);
+
     const result = dataList.filter((item) => item.id === id);
-    const selectedList = [...result];
+    selectedList = [...result];
 
     new ReserveDetail({ target: reserveContainer, selectedList });
   };
 
   new ReserveStatus({ target: reserveContainer, dataList, handleSelect });
+  new ReserveDetail({ target: reserveContainer, selectedList });
 };
 
 export default ReserveView;
