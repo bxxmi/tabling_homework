@@ -1,14 +1,10 @@
-import styles from "./ReserveStatus.module.scss";
+import "./ReserveStatus.scss";
 import ReserveStatusItem from "./ReserveStatusItem";
 
 const ReserveStatus = ({ target, dataList, handleSelect, handleRemove }) => {
-  const statusContainer = document.createElement("div");
   const $ul = document.createElement("ul");
 
-  statusContainer.className = styles.reserve_status;
-
-  statusContainer.appendChild($ul);
-  target.appendChild(statusContainer);
+  target.appendChild($ul);
 
   dataList.map((item) => {
     if (item.status !== "done") {
