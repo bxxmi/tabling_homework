@@ -1,7 +1,7 @@
 import styles from "./ReserveStatus.module.scss";
 import ReserveStatusItem from "./ReserveStatusItem";
 
-const ReserveStatus = ({ target, dataList, handleSelect }) => {
+const ReserveStatus = ({ target, dataList, handleSelect, handleRemove }) => {
   const statusContainer = document.createElement("div");
   const $ul = document.createElement("ul");
 
@@ -9,10 +9,6 @@ const ReserveStatus = ({ target, dataList, handleSelect }) => {
 
   statusContainer.appendChild($ul);
   target.appendChild(statusContainer);
-
-  const handleRemove = (id) => {
-    console.log(id);
-  };
 
   dataList.map((item) => {
     if (item.status !== "done") {

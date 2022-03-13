@@ -8,8 +8,6 @@ import {
 function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   const { id, customer, menus, status, tables, timeReserved } = item;
 
-  console.log(item);
-
   const $li = document.createElement("li");
   const timeContainer = document.createElement("div");
   const bookerContainer = document.createElement("div");
@@ -40,22 +38,34 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   $li.appendChild(buttonContainer);
   target.appendChild($li);
 
-  const resizeWidth = window.innerWidth;
+  // const resizeWidth = window.innerWidth;
 
-  $li.addEventListener("click", () => {
-    if (resizeWidth <= 1024) {
-      handleSelect(id);
-      const closeButton = document.querySelector(".reserve_detail > button");
-      const detailView = document.querySelector(".reserve_detail");
+  // $li.addEventListener("click", () => {
+  //   if (resizeWidth <= 1024) {
+  //     handleSelect(id);
+  //     const closeButton = document.querySelector(".reserve_detail > button");
+  //     const detailView = document.querySelector(".reserve_detail");
 
-      detailView.style.display = "block";
-      detailView.style.animation = "slide-up 0.5s ease-out";
+  //     detailView.style.display = "block";
+  //     detailView.style.animation = "slide-up 0.5s ease-out";
 
-      closeButton.style.display = "block";
-    } else {
-      handleSelect(id);
-    }
-  });
+  //     closeButton.style.display = "block";
+  //   } else {
+  //     handleSelect(id);
+  //   }
+  // });
+
+  // if (resizeWidth < 1024) {
+  //   $li.addEventListener("click", () => {
+  //     handleSelect(id);
+
+  //     const detailView = document.querySelector(".reserve_detail");
+  //     detailView.style.display = "block";
+  //     detailView.style.animation = "slide-up 0.5s ease-out";
+  //   });
+  // } else {
+  //   handleSelect(id);
+  // }
 
   button.addEventListener("click", (e) => {
     e.stopPropagation();

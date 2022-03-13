@@ -4,11 +4,11 @@ import ReserveDetail from "./ReserveDetail/ReserveDetail";
 
 const ReserveView = ({ target, dataList }) => {
   const reserveContainer = document.createElement("div");
-
   reserveContainer.className = styles.reserve_container;
   target.appendChild(reserveContainer);
 
   let selectedList = [dataList[0]];
+  let filteredList = [...dataList];
 
   const handleSelect = (id) => {
     const detailView = document.querySelector(".reserve_detail");
@@ -20,7 +20,16 @@ const ReserveView = ({ target, dataList }) => {
     new ReserveDetail({ target: reserveContainer, selectedList });
   };
 
-  new ReserveStatus({ target: reserveContainer, dataList, handleSelect });
+  const handleRemove = (id) => {
+    const result = filteredList.filter((item) => item.id !== id);
+  };
+
+  new ReserveStatus({
+    target: reserveContainer,
+    dataList,
+    handleRemove,
+    handleSelect,
+  });
   new ReserveDetail({ target: reserveContainer, selectedList });
 };
 
