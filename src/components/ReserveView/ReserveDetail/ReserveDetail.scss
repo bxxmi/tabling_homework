@@ -1,0 +1,103 @@
+.reserve_detail {
+  width: 400px;
+  border-radius: 10px;
+  background-color: white;
+  position: relative;
+
+  h2 {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  button {
+    font-size: 16px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: none;
+  }
+
+  .reserve_info {
+  }
+
+  .booker_info {
+  }
+}
+
+@media (max-width: 1024px) {
+  .reserve_detail {
+    width: 100%;
+    height: 600px;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    margin-left: -9px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 9999px;
+
+    @keyframes slide-up {
+      from {
+        height: 0px;
+      }
+      to {
+        height: 600px;
+      }
+    }
+
+    h2 {
+      height: 40px;
+      line-height: 40px;
+      padding: 10px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .reserve_info {
+      margin-bottom: 15px;
+      padding: 0 40px;
+
+      & > p {
+        font-size: 24px;
+        margin-bottom: 20px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        & > span {
+          color: #808080;
+          margin-right: 80px;
+        }
+      }
+    }
+
+    .booker_info {
+      padding: 0 40px;
+
+      & > p {
+        font-size: 24px;
+        margin-bottom: 20px;
+        display: flex;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        & > span:nth-child(1) {
+          width: 150px;
+          text-align: center;
+          color: #808080;
+          margin-right: 80px;
+        }
+
+        & > span:nth-child(2) {
+          width: 380px;
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+        }
+      }
+    }
+  }
+}
