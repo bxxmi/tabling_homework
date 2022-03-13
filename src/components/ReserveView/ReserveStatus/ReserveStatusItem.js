@@ -1,11 +1,14 @@
 import styles from "./ReserveStatusItem.module.scss";
 import { timeRegex } from "../../../utils/timeRegex";
-
-const STATUS = ["착석 중", "예약"];
-const IS_SEAT = ["착석", "퇴석"];
+import {
+  reserveStatusRegex,
+  seatStatusRegex,
+} from "../../../utils/statusRegex";
 
 function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   const { id, customer, menus, status, tables, timeReserved } = item;
+
+  console.log(item);
 
   const $li = document.createElement("li");
   const timeContainer = document.createElement("div");
@@ -19,9 +22,9 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
 
   timeContainer.innerHTML = `
     <p>${timeRegex(timeReserved)}</p>
-    <p class=${status === "seated" ? styles.seated : styles.reserve}>${
-    status === "seated" ? STATUS[0] : STATUS[1]
-  }</p>
+    <p class=${
+      status === "seated" ? styles.seated : styles.reserve
+    }>${reserveStatusRegex(status)}</p>
   `;
 
   bookerContainer.innerHTML = `
@@ -29,7 +32,7 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
     <p>성인 0${customer.adult} 아이 0${customer.child}</p>
     <p>${menus.map((menu) => `${menu.name}(${menu.qty})`).join(", ")}</p>`;
 
-  button.innerText = `${status === "seated" ? IS_SEAT[1] : IS_SEAT[0]}`;
+  button.innerText = `${seatStatusRegex(status)}`;
 
   buttonContainer.appendChild(button);
   $li.appendChild(timeContainer);
@@ -37,8 +40,21 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   $li.appendChild(buttonContainer);
   target.appendChild($li);
 
+  const resizeWidth = window.innerWidth;
+
   $li.addEventListener("click", () => {
-    handleSelect(id);
+    if (resizeWidth <= 1024) {
+      handleSelect(id);
+      const closeButton = document.querySelector(".reserve_detail > button");
+      const detailView = document.querySelector(".reserve_detail");
+
+      detailView.style.display = "block";
+      detailView.style.animation = "slide-up 0.5s ease-out";
+
+      closeButton.style.display = "block";
+    } else {
+      handleSelect(id);
+    }
   });
 
   button.addEventListener("click", (e) => {
