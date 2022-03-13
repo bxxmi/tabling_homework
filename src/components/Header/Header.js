@@ -1,4 +1,4 @@
-import "./header.module.scss";
+import "./Header.scss";
 
 const Header = ({ target }) => {
   const header = document.createElement("header");
