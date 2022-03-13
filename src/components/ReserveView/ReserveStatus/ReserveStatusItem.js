@@ -1,4 +1,4 @@
-import styles from "./ReserveStatusItem.module.scss";
+import "./ReserveStatusItem.scss";
 import { timeRegex } from "../../../utils/timeRegex";
 import {
   reserveStatusRegex,
@@ -14,15 +14,15 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   const buttonContainer = document.createElement("div");
   const button = document.createElement("button");
 
-  timeContainer.className = styles.time_container;
-  bookerContainer.className = styles.booker_container;
-  buttonContainer.className = styles.button_container;
+  timeContainer.className = "time_container";
+  bookerContainer.className = "booker_container";
+  buttonContainer.className = "button_container";
 
   timeContainer.innerHTML = `
     <p>${timeRegex(timeReserved)}</p>
-    <p class=${
-      status === "seated" ? styles.seated : styles.reserve
-    }>${reserveStatusRegex(status)}</p>
+    <p class=${status === "seated" ? "seated" : "reserve"}>${reserveStatusRegex(
+    status
+  )}</p>
   `;
 
   bookerContainer.innerHTML = `
