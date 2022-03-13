@@ -1,5 +1,6 @@
 import "./ReserveDetail.scss";
 import { reserveStatusRegex } from "../../../utils/statusRegex";
+import { timeRegex } from "../../../utils/timeRegex";
 
 const ReserveDetail = ({ target, selectedList }) => {
   const { customer, status, timeRegistered, timeReserved } = selectedList[0];
@@ -18,8 +19,8 @@ const ReserveDetail = ({ target, selectedList }) => {
     <h2>예약 정보</h2>
     <div class="reserve_info">
       <p><span>예약 상태</span>${reserveStatusRegex(status)}</p>
-      <p><span>예약 시간</span>${timeReserved}</p>
-      <p><span>예약 시간</span>${timeRegistered}</p>
+      <p><span>예약 시간</span>${timeRegex(timeReserved)}</p>
+      <p><span>예약 시간</span>${timeRegex(timeRegistered)}</p>
     </div>
   `;
 
