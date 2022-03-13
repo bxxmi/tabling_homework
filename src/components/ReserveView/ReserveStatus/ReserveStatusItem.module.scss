@@ -4,7 +4,7 @@ li {
   margin-bottom: 10px;
   border-radius: 10px;
   display: flex;
-  padding: 0 20px;
+  justify-content: space-evenly;
 
   &:last-child {
     margin-bottom: 0;
@@ -13,14 +13,11 @@ li {
   .time_container {
     width: 90px;
     height: 100%;
-    padding: 0 10px;
     font-size: 20px;
-    margin-right: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
 
     & > p:nth-child(1) {
       margin-bottom: 15px;
@@ -36,11 +33,44 @@ li {
   }
 
   .booker_container {
-    border: 1px solid green;
-    width: 400px;
+    width: calc(100% - 230px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > p {
+      font-size: 20px;
+      height: 20px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .button_container {
-    border: 1px solid blue;
+    width: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      width: 80px;
+      height: 40px;
+      font-size: 18px;
+      border-radius: 10px;
+      background-color: #162149;
+      color: white;
+
+      &:hover {
+        border: 2px solid #162149;
+        background-color: white;
+        color: #162149;
+      }
+    }
   }
 }
