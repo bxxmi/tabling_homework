@@ -53,6 +53,7 @@ style: 주석 추가, 간단한 코드 추가 및 수정, 스타일링
 refactor: 코드 리팩토링 
 feat: 기능 구현 및 추가
 conf: 프로젝트 환경 설정
+chore: package.json 관련
 ```
 
 ### 서비스 시나리오
