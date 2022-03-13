@@ -7,7 +7,13 @@
 * [서비스 시나리오](#서비스-시나리오)
 * [실행 방법](#실행-방법)
 
-![screen-recording-_1_](https://user-images.githubusercontent.com/56878724/158054291-62edfcd4-ee1e-4daa-8047-6b5e4661ea15.gif)
+#### 🖥 Desktop
+![screen-recording](https://user-images.githubusercontent.com/56878724/158055294-868706c8-12bd-4d98-893e-30583e37bc67.gif)
+
+#### 📱 Mobile
+
+![screen-recording-_1_](https://user-images.githubusercontent.com/56878724/158055317-7d8d29a3-44a2-45c8-adaf-1c047d0db115.gif)
+
 
 ### 파일 구조
 
