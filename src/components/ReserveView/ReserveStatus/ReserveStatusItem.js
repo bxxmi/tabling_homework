@@ -38,34 +38,40 @@ function ReserveStatusList({ target, item, handleRemove, handleSelect }) {
   $li.appendChild(buttonContainer);
   target.appendChild($li);
 
-  // const resizeWidth = window.innerWidth;
+  $li.addEventListener("click", () => {
+    handleSelect(id);
 
-  // $li.addEventListener("click", () => {
-  //   if (resizeWidth <= 1024) {
-  //     handleSelect(id);
-  //     const closeButton = document.querySelector(".reserve_detail > button");
-  //     const detailView = document.querySelector(".reserve_detail");
+    const resizeWidth = window.innerWidth;
 
-  //     detailView.style.display = "block";
-  //     detailView.style.animation = "slide-up 0.5s ease-out";
+    if (resizeWidth < 1024) {
+      handleSelect(id);
 
-  //     closeButton.style.display = "block";
-  //   } else {
-  //     handleSelect(id);
-  //   }
-  // });
+      const detailView = document.querySelector(".reserve_detail");
+      const closeButton = document.querySelector(".reserve_detail > button");
 
-  // if (resizeWidth < 1024) {
-  //   $li.addEventListener("click", () => {
-  //     handleSelect(id);
+      detailView.style.display = "block";
+      detailView.style.animation = "slide-up 0.5s ease-out";
 
-  //     const detailView = document.querySelector(".reserve_detail");
-  //     detailView.style.display = "block";
-  //     detailView.style.animation = "slide-up 0.5s ease-out";
-  //   });
-  // } else {
-  //   handleSelect(id);
-  // }
+      closeButton.style.display = "block";
+
+      closeButton.addEventListener("click", () => {
+        detailView.style.display = "none";
+      });
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    const resizeWidth = window.innerWidth;
+    const detailView = document.querySelector(".reserve_detail");
+    const closeButton = document.querySelector(".reserve_detail > button");
+
+    if (resizeWidth >= 1024) {
+      detailView.style.display = "block";
+      closeButton.style.display = "none";
+    } else {
+      detailView.style.display = "none";
+    }
+  });
 
   button.addEventListener("click", (e) => {
     e.stopPropagation();
